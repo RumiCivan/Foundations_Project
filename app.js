@@ -7,6 +7,7 @@ const { register,
     viewPendingList,
     viewProcessedList    
     } = require("./ticketFunctions");
+    
 const { parseArgs } = require("util");
 
 const port = 3000;
@@ -23,11 +24,17 @@ const server = http.createServer((req, res) => {
     
         if(req.url === "/register"){
             const {username, password} = body; 
-            register(username, password);
+            //register(username, password);
+
+            res.writeHead(200, contentType);
+            res.end(register(username, password));
         }
         else if(req.url === "login"){
             const {username, password} = body;
-            login(username, password);
+            //login(username, password);
+
+            res.writeHead(200, contentType);
+            res.end(login(username, password));
         }
         // after user has entered the home page
         else if (req.url.startsWith("/home")) {
