@@ -31,13 +31,13 @@ async function viewPendingList(){
     }
 }
 
-async function updateTicket(id) {
+async function updateTicket(id, status) {
     const updateCommand = new UpdateCommand({
         TableName : ticketTable,
         Key : {ticketID : id},
         UpdateExpression : "set #status = :status",
         ExpressionAttributeNames : {"#status" : "status"},
-        ExpressionAttributeValues:{":status" : "Denied"},
+        ExpressionAttributeValues:{":status" : { S:status }},
         //ReturnValues : "ALL_NEW"
     });
 

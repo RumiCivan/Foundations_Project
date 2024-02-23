@@ -3,6 +3,51 @@ const router = express.Router();
 
 const service = require("../service/service");
 
+// login and register
+router.post("/register", async (req, res) => {
+  let { username, password, role } = req.body;
+
+  //const saltRounds = 10;
+
+  //password = await bcrypt.hash(password, saltRounds);
+  //console.log(password);
+
+  //const newUser = { username, password, role };
+  //users.push(newUser);
+
+  const newUser = await service.register(username, password, role)
+
+  res.status(201).json({ message: "User registered successfully", newUser });
+});
+
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  // find the user in the database
+  const user = users.find((user) => user.username === username);
+
+  const credentials = service.login(username, password);
+
+  if (!user || !(await bcrypt.compare(password, credentials.password))) {
+    res.status(401).json({ message: "Invalid Credentials" });
+  } else {
+    // generate a JWT token
+
+    const token = jwt.sign(
+      {
+        id: user.id,
+        username: user.username,
+        role: user.role,
+      },
+      secretKey,
+      {
+        expiresIn: "15m", // token expiration time (adjust as needed)
+      }
+    );
+    res.json({ token });
+  }
+});
+
 // view ticket list
 router.get("/viewList", async (req, res) => {
     const username = req.query.name;
