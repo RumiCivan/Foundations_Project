@@ -5,7 +5,8 @@ const {
   PutCommand,
   UpdateCommand,
   DeleteCommand,
-  QueryCommand
+  QueryCommand,
+  ScanCommand
 } = require("@aws-sdk/lib-dynamodb")
  
 const client = new DynamoDBClient({ region: "us-west-1" });
@@ -16,29 +17,44 @@ const documentClient = DynamoDBDocumentClient.from(client);
 const userTable = "Users";
 const ticketTable = "Tickets";
 
-async function viewList(userID){
+async function viewList(name){
     // TODO: pull list from server and return
-    const getCommand = new GetCommand({
+    // const getCommand = new GetCommand({
+    //     TableName : ticketTable,
+    //     Key : {username : name}
+    // });
+    const command = new ScanCommand({
         TableName : ticketTable,
-        Key : {userID : userID}
+        FilterExpression: "#username = :name",
+        //KeyConditionExpression : "#username = :name",
+        ExpressionAttributeNames: {"#username": "username"},
+        ExpressionAttributeValues: {':name': name}
     });
+
     try {
-        const data = await documentClient.send(getCommand);
-        console.log(data);
+        const data = await documentClient.send(command);
+        return data;
     } catch (error) {
         return null;
     }
 }
 
 async function submitTicket(ticket){
-    const putCommand = new PutCommand({
+    const updateCommand = new PutCommand({
         TableName : ticketTable,
-        Item : ticket
+        Item : {
+            ticketID: ticket.ticketID,
+            username: ticket.username,
+            amount: ticket.amount,
+            description : ticket.description,
+            status : "Pending"
+        }
     })
 
     try {
-        const data = await documentClient.send(putCommand);
+        const data = await documentClient.send(updateCommand);
         console.log(data);
+        return "Submit Success!";
         
     } catch (error) {
         return null;

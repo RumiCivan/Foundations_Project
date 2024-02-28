@@ -3,45 +3,73 @@ const employeeDAO = require("../repository/EmployeeDAO");
 const authenticationDAO = require("../repository/AuthenticationDAO");
 const uuid = require("uuid");
 
-// for jwt and bcrypt
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const secretKey = "Misty-Freezingflame";
-
 async function register(username, password, role){
 
-    return authenticationDAO.register(username, password, role);
+    if(username && password && role){
+      let msg = await authenticationDAO.register({
+        id : uuid.v4(),
+        username : username,
+        password : password,
+        role : role
+      })
+      console.log("New user registering...")
+      return msg;
+    }
+    else{
+      return "Missing Information";
+    }
+    
 }
 
-async function login(username, password){
-
-    return authenticationDAO.login(username, password);
+async function login(username){
+  
+  if(username){
+    const data = authenticationDAO.login(username)
+    return data;
+  } else {
+    console.log("Missing Information");
+    return;
+  }
+  
 }
 
 // for employee
-async function viewList(){
-
-    return employeeDAO.viewList();
+async function viewList(name){
+    const item = await employeeDAO.viewList(name)
+    return item;
 }
 
-async function sumbitTicket(ticket){
+async function submitTicket(data){
 
-    return employeeDAO.submitTicket(ticket);
+    if (validateTicket(data)) {
+      let ticket = await employeeDAO.submitTicket({
+        ticketID: uuid.v4(),
+        username: data.username,
+        amount: data.amount,
+        description : data.description,
+        status : "Pending"
+      });
+      console.log("Ticket transmitting to server......")
+      return ticket;
+    }
+  
+    return "Missing Infomation";
 }
 
 // for manager
 async function viewPendingList(){
-
-    return managerDao.viewPendingList();
+    const item = await managerDao.viewPendingList()
+    return item;
 }
 
-async function updateTicket(ticketID, status) {
+async function updateTicket(data) {
     // TODO prevent manager update processed ticket
-    return managerDao.updateTicket(ticketID, status);
+    const msg = await managerDao.updateTicket(data.ticketID, data.status)
+    return msg;
 }
 
 function validateTicket(data) {
-    if(!data.amount || !data.description){
+    if(!data.amount || !data.description || !data.username){
         return false;
     }
     return true;
@@ -90,7 +118,7 @@ function authenticateToken(req, res, next) {
 module.exports = {
     register,
     login,
-    sumbitTicket,
+    submitTicket,
     updateTicket,
     viewList,
     viewPendingList,

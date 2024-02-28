@@ -1,0 +1,53 @@
+2024-02-25T20:18:54.682Z [error]: Uncaught Exception: ReferenceError: username is not defined
+2024-02-25T20:19:11.528Z [error]: Uncaught Exception: ReferenceError: username is not defined
+2024-02-25T20:34:17.985Z [error]: Uncaught Exception: ReferenceError: userID is not defined
+2024-02-25T20:58:42.813Z [error]: Uncaught Exception: ReferenceError: ScanCommand is not defined
+2024-02-25T21:40:21.740Z [error]: Uncaught Exception: ReferenceError: username is not defined
+2024-02-25T22:08:51.263Z [error]: Uncaught Exception: ReferenceError: validateItem is not defined
+2024-02-25T22:09:51.524Z [error]: Uncaught Exception: ReferenceError: Cannot access 'ticket' before initialization
+2024-02-25T22:12:15.144Z [error]: Uncaught Exception: ReferenceError: Cannot access 'ticket' before initialization
+2024-02-25T22:33:30.588Z [error]: Uncaught Exception: TypeError: service.submitTicket is not a function
+2024-02-25T22:34:48.597Z [error]: Uncaught Exception: TypeError: Assignment to constant variable.
+2024-02-25T22:42:46.191Z [error]: Uncaught Exception: ReferenceError: data is not defined
+2024-02-25T22:43:23.106Z [error]: Uncaught Exception: ReferenceError: uuid is not defined
+2024-02-28T02:39:10.364Z [error]: Uncaught Exception: ReferenceError: json is not defined
+2024-02-28T04:19:16.634Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:23:22.933Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:25:52.463Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:30:15.723Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:33:42.841Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:34:28.394Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:35:21.541Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:36:11.907Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:36:58.099Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:43:57.832Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:44:42.266Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T04:45:58.165Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:11:46.202Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:13:31.464Z [error]: Uncaught Exception: ReferenceError: password is not defined
+2024-02-28T05:14:05.599Z [error]: Uncaught Exception: ReferenceError: password is not defined
+2024-02-28T05:14:39.737Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:15:36.643Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:16:20.935Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:19:33.503Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:20:43.093Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:22:04.306Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:22:36.379Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'Password')
+2024-02-28T05:26:19.428Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T05:27:09.087Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T05:29:30.957Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T06:02:49.820Z [error]: Uncaught Exception: ReferenceError: user is not defined
+2024-02-28T16:13:03.839Z [error]: Uncaught Exception: ValidationException: Query condition missed key schema element: id
+2024-02-28T16:15:07.584Z [error]: Uncaught Exception: ValidationException: Query condition missed key schema element: id
+2024-02-28T16:27:12.319Z [error]: Uncaught Exception: ValidationException: The table does not have the specified index: username
+2024-02-28T16:27:55.491Z [error]: Uncaught Exception: ValidationException: The table does not have the specified index: Username
+2024-02-28T16:28:35.466Z [error]: Uncaught Exception: ValidationException: Query condition missed key schema element: Username
+2024-02-28T16:33:44.121Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T16:35:44.267Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T16:36:54.561Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T16:37:45.984Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T16:38:52.035Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T18:03:31.404Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T18:06:33.868Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
+2024-02-28T18:08:38.966Z [error]: Uncaught Exception: Error: data and hash arguments required
+2024-02-28T18:35:55.670Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')

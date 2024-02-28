@@ -5,55 +5,53 @@ const {
   PutCommand,
   UpdateCommand,
   DeleteCommand,
-  QueryCommand
-} = require("@aws-sdk/lib-dynamodb")
+  QueryCommand,
+  ScanCommand
+} = require("@aws-sdk/lib-dynamodb");
+const { log } = require("winston");
  
 const client = new DynamoDBClient({ region: "us-west-1" });
  
 // getting the documentClient
 const documentClient = DynamoDBDocumentClient.from(client);
 
-// for jwt and bcrypt
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const secretKey = "Misty-Freezingflame";
+// // for jwt and bcrypt
+// const jwt = require("jsonwebtoken");
+// const bcrypt = require("bcrypt");
+// const secretKey = "Misty-Freezingflame";
 
-// user data
-const users = {
-    
-}
 
-// TODO: create const for the list(?)
-async function register(username, password, role){
-    
-    const qcommand = new QueryCommand({
-        TableName: "userInfo",
-        KeyConditionExpression: "#username = :username",
+async function register(newUser){
+    console.log(newUser);
+    const command = new QueryCommand({
+        TableName: "Users",
+        IndexName: "username-index",
+        //FilterExpression: "#username = :username",
+        KeyConditionExpression : "#username = :username",
         ExpressionAttributeNames: { "#username": "username" },
-        ExpressionAttributeValues: { ":username": { S: username } },
+        ExpressionAttributeValues: { ":username": newUser.username },
     });
       
     try {
         // TODO: check if username already existed
-        const data = await documentClient.send(qcommand);
-        if(!data){
+        let data = await documentClient.send(command);
+
+        if(data.Count === 0){
             // TODO: push new user info to server
             const pcommand = new PutCommand({
-                TableName: "userInfo",
-                username: username,
-                password : password,
-                role : role
+                TableName: "Users",
+                Item: {
+                    id : newUser.id,
+                    username: newUser.username,
+                    password : newUser.password,
+                    role : newUser.role
+                }
             });
-            try {
-                const data = await documentClient.send(pcommand);
-                return JSON.stringify(`Registration Success! \n ${data}`);
-            } catch (error) {
-                console.error("Unable to register User. Error:", JSON.stringify(error, null, 1));
-                return null;
-            }           
+            const user = await documentClient.send(pcommand);
+            return true;       
         }
         else{
-            return JSON.stringify("Username is already taken!");
+            return false;            
         }
         
     } catch (error) {
@@ -62,21 +60,26 @@ async function register(username, password, role){
     }   
 }
 
-function login(username, password){
+async function login(username){
     // TODO: pull info from server and verify
-    const qcommand = new QueryCommand({
-        TableName: "userInfo",
-        KeyConditionExpression: "#username = :username",
-        ExpressionAttributeNames: { "#username": "username" },
-        ExpressionAttributeValues: { ":username": { S: username } },
+    const command = new QueryCommand({
+        TableName: "Users",
+        IndexName: "username-index",
+        //FilterExpression: "#username = :username",
+        KeyConditionExpression : "#username = :username",
+        ExpressionAttributeNames: { "#username": "username"},
+        ExpressionAttributeValues: { ":username": username},
     });
     try {
-        const data = documentClient.send(qcommand);
-        if(data.username === username && data.password === password){
-            return JSON.stringify(`Login Success! \n ${data}`);
+        const data = await documentClient.send(command);
+        let user = data;
+        
+        if(user.Count !== 0){
+            return user.Items[0];
         }
         else{
-            return JSON.stringify(`Wrong Credentials! \n ${data}`);
+            console.log("ERROR!");
+            return false;
         }
     } catch (error) {
         return null;
