@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
 
   const msg = await service.register(username, password, role);
   if(msg){
-    res.status(201).json({ message: "Registration Success!" });
+    res.status(201).json({ message: "Registration Success!", msg });
   } else{
     res.status(400).json({ message : "Username is already taken."});
   }

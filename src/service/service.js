@@ -76,44 +76,44 @@ function validateTicket(data) {
 }
 
 // authentication
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
+// function authenticateToken(req, res, next) {
+//     const authHeader = req.headers["authorization"];
+//     const token = authHeader && authHeader.split(" ")[1];
   
-    if (!token) {
-      res.status(401).json({ message: "Unauthorized Access" });
-      return;
-    }
+//     if (!token) {
+//       res.status(401).json({ message: "Unauthorized Access" });
+//       return;
+//     }
   
-    jwt.verify(token, secretKey, (err, user) => {
-      if (err) {
-        res.status(403).json({ message: "Forbidden Access" });
-        return;
-      }
-      req.user = user;
-      next();
-    });
-  }
+//     jwt.verify(token, secretKey, (err, user) => {
+//       if (err) {
+//         res.status(403).json({ message: "Forbidden Access" });
+//         return;
+//       }
+//       req.user = user;
+//       next();
+//     });
+//   }
   
-  function authenticateAdminToken(req, res, next) {
-    const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
+  // function authenticateAdminToken(req, res, next) {
+  //   const authHeader = req.headers["authorization"];
+  //   const token = authHeader && authHeader.split(" ")[1];
   
-    if (!token) {
-      res.status(401).json({ message: "Unauthorized Access" });
-      return;
-    }
+  //   if (!token) {
+  //     res.status(401).json({ message: "Unauthorized Access" });
+  //     return;
+  //   }
   
-    jwt.verify(token, secretKey, (err, user) => {
-      console.log(user.role);
-      if (err || user.role !== "admin") {
-        res.status(403).json({ message: "Forbidden Access" });
-        return;
-      }
-      req.user = user;
-      next();
-    });
-  }
+  //   jwt.verify(token, secretKey, (err, user) => {
+  //     console.log(user.role);
+  //     if (err || user.role !== "admin") {
+  //       res.status(403).json({ message: "Forbidden Access" });
+  //       return;
+  //     }
+  //     req.user = user;
+  //     next();
+  //   });
+  // }
 
 module.exports = {
     register,
@@ -122,6 +122,4 @@ module.exports = {
     updateTicket,
     viewList,
     viewPendingList,
-    authenticateToken,
-    authenticateAdminToken
 }
