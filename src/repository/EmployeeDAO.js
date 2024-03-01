@@ -17,7 +17,7 @@ const documentClient = DynamoDBDocumentClient.from(client);
 const userTable = "Users";
 const ticketTable = "Tickets";
 
-async function viewList(name){
+async function viewList(username){
     // TODO: pull list from server and return
     // const getCommand = new GetCommand({
     //     TableName : ticketTable,
@@ -25,15 +25,15 @@ async function viewList(name){
     // });
     const command = new ScanCommand({
         TableName : ticketTable,
-        FilterExpression: "#username = :name",
+        FilterExpression: "#username = :username",
         //KeyConditionExpression : "#username = :name",
         ExpressionAttributeNames: {"#username": "username"},
-        ExpressionAttributeValues: {':name': name}
+        ExpressionAttributeValues: {':username': username}
     });
 
     try {
         const data = await documentClient.send(command);
-        return data;
+        return data.Items;
     } catch (error) {
         return null;
     }

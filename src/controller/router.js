@@ -53,9 +53,9 @@ router.post("/login", async (req, res) => {
 });
 
 // view ticket list by employee
-router.get("/lists",authenticateToken, async (req, res) => {
-    const username = req.user.username;
-    console.log(req.user);
+router.get("/lists", async (req, res) => {
+    const username = req.body.username;
+    console.log(username);
 
   if (username) {
     const item = await service.viewList(username);
@@ -123,7 +123,7 @@ function authenticateManagerToken(req, res, next) {
   }
 
   jwt.verify(token, secretKey, (err, user) => {
-    console.log(user.role);
+
     if (err || user.role !== "Manager") {
       res.status(403).json({ message: "Forbidden Access" });
       return;

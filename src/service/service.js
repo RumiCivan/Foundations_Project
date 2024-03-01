@@ -34,8 +34,8 @@ async function login(username){
 }
 
 // for employee
-async function viewList(name){
-    const item = await employeeDAO.viewList(name)
+async function viewList(username){
+    const item = await employeeDAO.viewList(username)
     return item;
 }
 
