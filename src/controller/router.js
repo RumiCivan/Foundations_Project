@@ -16,11 +16,10 @@ router.post("/register", async (req, res) => {
 
   const saltRounds = 10;
   password = await bcrypt.hash(password, saltRounds);
-  console.log(password);
 
   const msg = await service.register(username, password, role);
   if(msg){
-    res.status(201).json({ message: "Registration Success!", msg });
+    res.status(201).json({ message: "Registration Success!" });
   } else{
     res.status(400).json({ message : "Username is already taken."});
   }
@@ -32,11 +31,8 @@ router.post("/login", async (req, res) => {
   let password = req.body.password;
 
   const user = await service.login(username);
-  
-  console.log(user);
  
   if (!user || !( await bcrypt.compare(password, user.password))) {
-    console.log(password, user.password);
     res.status(401).json({ message: "Invalid Credentials" });
   } else {
     // generate a JWT token

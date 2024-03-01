@@ -48,7 +48,7 @@ async function register(newUser){
                 }
             });
             const user = await documentClient.send(pcommand);
-            return user;       
+            return true;       
         }
         else{
             return false;            
