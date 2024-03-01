@@ -13,7 +13,10 @@ async function register(username, password, role){
         role : role
       })
       console.log("New user registering...")
-      return msg;
+      if(msg === true){
+        return "Registration Success!";
+      }
+      
     }
     else{
       return "Missing Information";

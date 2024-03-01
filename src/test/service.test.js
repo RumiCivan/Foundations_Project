@@ -70,6 +70,20 @@ describe('Service Test', () => {
     // Assert that the result mathces the expected value
     expect(res).toEqual("OK");
   });
+  test("testing service update function", async() => {
+    // configure the mock function to return a fixed value
+    
+    managerDao.updateTicket.mockResolvedValue("Update Success!")
+  
+    // Call the function with the sample data
+    const res = await service.updateTicket(sampleTicket);
+  
+    // Assert that the mock function was called with the sample
+    expect(managerDao.updateTicket).toHaveBeenCalledTimes(1);
+  
+    // Assert that the result mathces the expected value
+    expect(res).toEqual("Update Success!");
+  });
   test("testing service login function", async() => {
     // configure the mock function to return a fixed value
     

@@ -34,7 +34,7 @@ async function viewPendingList(){
     });
     try {
         const data = await documentClient.send(command);
-        return data;
+        return data.Items;
     } catch (error) {
         return null;
     }

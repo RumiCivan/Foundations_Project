@@ -52,3 +52,4 @@
 2024-02-28T18:08:38.966Z [error]: Uncaught Exception: Error: data and hash arguments required
 2024-02-28T18:35:55.670Z [error]: Uncaught Exception: TypeError: Cannot read properties of null (reading 'password')
 2024-03-01T01:36:23.988Z [error]: Uncaught Exception: TypeError: Cannot read properties of undefined (reading 'username')
+2024-03-01T16:17:44.429Z [error]: Uncaught Exception: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: Login Success!

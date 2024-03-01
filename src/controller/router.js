@@ -19,7 +19,7 @@ router.post("/register", async (req, res) => {
 
   const msg = await service.register(username, password, role);
   if(msg){
-    res.status(201).json({ message: "Registration Success!" });
+    res.status(201).json({ message: msg });
   } else{
     res.status(400).json({ message : "Username is already taken."});
   }
@@ -48,7 +48,7 @@ router.post("/login", async (req, res) => {
         expiresIn: "15m", // token expiration time (adjust as needed)
       }
     );
-    res.json({ token });
+    res.status(200).json( {message: `Login Success!`, token} );
   }
 });
 

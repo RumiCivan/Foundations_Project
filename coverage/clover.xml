@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709231568029" clover="3.2.0">
-  <project timestamp="1709231568029" name="All files">
-    <metrics statements="115" coveredstatements="42" conditionals="32" coveredconditionals="10" methods="17" coveredmethods="6" elements="164" coveredelements="58" complexity="0" loc="115" ncloc="115" packages="2" files="4" classes="4"/>
+<coverage generated="1709308684149" clover="3.2.0">
+  <project timestamp="1709308684149" name="All files">
+    <metrics statements="91" coveredstatements="44" conditionals="18" coveredconditionals="10" methods="13" coveredmethods="7" elements="122" coveredelements="61" complexity="0" loc="91" ncloc="91" packages="2" files="4" classes="4"/>
     <package name="repository">
-      <metrics statements="63" coveredstatements="20" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <metrics statements="62" coveredstatements="20" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
       <file name="AuthenticationDAO.js" path="C:\Users\16258\Desktop\RevatureGit\Foundations_Project\src\repository\AuthenticationDAO.js">
         <metrics statements="26" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -55,7 +55,7 @@
         <line num="64" count="1" type="stmt"/>
       </file>
       <file name="ManagerDAO.js" path="C:\Users\16258\Desktop\RevatureGit\Foundations_Project\src\repository\ManagerDAO.js">
-        <metrics statements="19" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="18" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -66,21 +66,20 @@
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
       </file>
     </package>
     <package name="service">
-      <metrics statements="52" coveredstatements="22" conditionals="28" coveredconditionals="10" methods="11" coveredmethods="6"/>
+      <metrics statements="29" coveredstatements="24" conditionals="14" coveredconditionals="10" methods="7" coveredmethods="7"/>
       <file name="service.js" path="C:\Users\16258\Desktop\RevatureGit\Foundations_Project\src\service\service.js">
-        <metrics statements="52" coveredstatements="22" conditionals="28" coveredconditionals="10" methods="11" coveredmethods="6"/>
+        <metrics statements="29" coveredstatements="24" conditionals="14" coveredconditionals="10" methods="7" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -104,34 +103,11 @@
         <line num="56" count="0" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
         <line num="72" count="1" type="cond" truecount="4" falsecount="1"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="102" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
-        <line num="109" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
         <line num="118" count="1" type="stmt"/>
       </file>
     </package>
